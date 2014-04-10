@@ -1,0 +1,138 @@
+@import "icons.less";
+@import "normalize.less";
+
+
+@navBG              :       #2A2D33;
+@navBGActive        :       #1C1D20;
+
+@txtClr             :       #C3C6D0;
+@txtClrHover        :       #EDEFF0;
+@txtClrInAct        :       #ADA8AA;
+
+// Zero Margin Padding
+// --------------------------------------------------
+.ZeroPadMar{
+  margin:0;
+  padding:0;
+}
+
+// Width & Height
+// --------------------------------------------------
+.setWidthHt(@ele_width,@ele_height){
+    width:@ele_width;
+    height:@ele_height;
+}
+
+// Simple Transistion
+// --------------------------------------------------
+.SimpleTrans{
+    -webkit-transition:all 0.5s ease;
+        -moz-transition:all 0.5s ease;
+            -o-transition:all 0.5s ease;
+                transition:all 0.5s ease;
+}
+
+
+/*------------------------------------------------------------------
+[Common Styles]
+-------------------------------------------------------------------*/
+.clear:after
+{
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+
+.clear
+{
+    zoom: 1;
+}
+
+
+html,body{
+    .setWidthHt(100%,100%);
+}
+
+body{
+	font-family: Tahoma,Arial, sans-serif;
+    font-size: 16px;
+     .setWidthHt(100%,100%);
+      overflow: hidden;
+    background: url(http://subtlepatterns.com/patterns/geometry.png) repeat;
+}
+h2{
+	color: red;
+}
+
+nav{
+    position: relative;
+
+    background:@navBG;
+    clear:both;
+    height: 38px;
+
+}
+
+.ctrlBtn{
+    cursor: pointer;
+    float: left;
+    display: block;
+    padding:0.5em 1.0em;
+    border-right: 1px solid darken(@navBG, 9%);
+
+    span{
+        color:@txtClrInAct;
+    }
+    select{
+        height: 25px;
+        font-size: 14px;
+
+    }
+
+}
+
+.ctrlBtn:hover{
+    background: darken(@navBG, 10%);
+    span{
+        color:@txtClrHover;
+    }
+}
+
+//iFrame Container -> prjContainer
+#prjContainer{
+        margin:0 auto;
+        position: relative;
+        .SimpleTrans;
+
+    background:@navBG;
+    .setWidthHt(100%,100%);
+    iframe{
+    .setWidthHt(100%,100%);
+    }
+}
+
+
+.rotateScreen{
+transform:rotate(90deg);
+-ms-transform:rotate(90deg); /* IE 9 */
+-webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+}
+
+::-webkit-input-placeholder {
+    font-size:13px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    font-size:13px;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    font-size:13px;
+}
+
+:-ms-input-placeholder {
+    font-size:13px;
+}
