@@ -2,12 +2,13 @@
 @import "normalize.less";
 
 
-@navBG              :       #2A2D33;
+@navBG              :       #1AD6FD;
+@navBGTwo           :       #1D62F0;
 @navBGActive        :       #1C1D20;
 
-@txtClr             :       #C3C6D0;
-@txtClrHover        :       #EDEFF0;
-@txtClrInAct        :       #ADA8AA;
+@txtClr             :       #eee;
+@txtClrHover        :       #fff;
+@txtClrInAct        :       #ccc;
 
 // Zero Margin Padding
 // --------------------------------------------------
@@ -17,6 +18,7 @@
 }
 
 // Width & Height
+
 // --------------------------------------------------
 .setWidthHt(@ele_width,@ele_height){
     width:@ele_width;
@@ -32,6 +34,18 @@
                 transition:all 0.5s ease;
 }
 
+// Linear Gradients
+// --------------------------------------------------
+.linearGradient(@colorOne,@colorTwo){
+    background: @colorOne;
+    background: -moz-linear-gradient(top, @colorOne 0%, @colorTwo 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@colorOne), color-stop(100%,@colorTwo));
+    background: -webkit-linear-gradient(top, @colorOne 0%,@colorTwo 100%);
+    background: -o-linear-gradient(top, @colorOne 0%,@colorTwo 100%);
+    background: -ms-linear-gradient(top, @colorOne 0%,@colorTwo 100%);
+    background: linear-gradient(to bottom, @colorOne 0%,@colorTwo 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@colorOne', endColorstr='@colorTwo',GradientType=0 );
+}
 
 /*------------------------------------------------------------------
 [Common Styles]
@@ -70,7 +84,7 @@ h2{
 nav{
     position: relative;
 
-    background:@navBG;
+    .linearGradient(@navBG,@navBGTwo);
     clear:both;
     height: 38px;
 
@@ -80,11 +94,18 @@ nav{
     cursor: pointer;
     float: left;
     display: block;
-    padding:0.5em 1.0em;
-    border-right: 1px solid darken(@navBG, 9%);
+    text-align: center;
+    border-right: 1px solid darken(@navBGTwo, 0%);
 
     span{
+        display: inline-block;
+        width: 3.0em;
+        height: 2.3em;
+        position: relative;
+        top:8px;
         color:@txtClrInAct;
+
+        .SimpleTrans;
     }
     select{
         height: 25px;
@@ -95,9 +116,13 @@ nav{
 }
 
 .ctrlBtn:hover{
-    background: darken(@navBG, 10%);
+     background: darken(@navBG, 5%);
     span{
+
         color:@txtClrHover;
+
+
+
     }
 }
 
@@ -116,9 +141,17 @@ nav{
 
 
 .rotateScreen{
-transform:rotate(90deg);
--ms-transform:rotate(90deg); /* IE 9 */
--webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+ background: darken(@navBG, 5%);
+    text-align: center;
+    span{
+    transform:rotate(90deg);
+    -ms-transform:rotate(90deg); /* IE 9 */
+    -webkit-transform:rotate(90deg); /* Opera, Chrome, and Safari */
+    right: 10px;
+    top: -2px;
+    color:@txtClrHover;
+
+    }
 }
 
 ::-webkit-input-placeholder {

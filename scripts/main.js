@@ -1,6 +1,12 @@
 $(function(){
 
-    var toggleViewPort,
+    var DesktopObj = [{"xWidth":"1366","yHeight":"768"},{"xWidth":"1280","yHeight":"800"},{"xWidth":"1440","yHeight":"900"},{"xWidth":"1600","yHeight":"900"},{"xWidth":"1680","yHeight":"1050"},{"xWidth":"1920","yHeight":"1080"},{"xWidth":"1920","yHeight":"1200"},{"xWidth":"2560","yHeight":"1700"},{"xWidth":"2560","yHeight":"1440"},{"xWidth":"2560","yHeight":"1600"},{"xWidth":"2560","yHeight":"1800"}],
+
+
+
+
+
+        toggleViewPort,
         viewPort = $('#prjContainer'),
         mobRes = $('#mobileRes'),
         resetViewPort = $('#resReset'),
