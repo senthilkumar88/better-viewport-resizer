@@ -16,16 +16,36 @@ $(function() {
 
     MobObj = [{"xWidth":"400","yHeight":"800"},{"xWidth":"480","yHeight":"800"},{"xWidth":"720","yHeight":"1280"},{"xWidth":"540","yHeight":"960"},{"xWidth":"720","yHeight":"720"}],
 
-    toggleViewPort, viewPort = $('#prjContainer'),
+    toggleViewPort,
+    viewPort = $('#prjContainer'),
     mobRes = $('#mobileRes'),
     resetViewPort = $('#resReset'),
     tabRes = $('#tabRes'),
     laptopRes = $('#laptopRes'),
     desktopRes = $('#desktopRes'),
-    selectRes = $('#selectRes');
+    selectRes = $('#selectRes')
+    inputWidth = $('#inputWidth'),
+    inputHeight = $('#inputHeight');
 
 
+    function customVPSize(){
+        inputWidth.on('keyup',function(){
+            var foo = inputWidth.val();
+            if(foo >= 0 && foo <= 5000)
+                viewPort.width(foo);
+            else
+                alert('Enter value less than 5000')
+        })
 
+        inputHeight.on('keyup',function(){
+            var bar = inputHeight.val();
+            if(bar >= 0 && bar <= 3000)
+                viewPort.height(bar);
+            else
+                alert('Enter value less than 3000')
+        })
+
+    }//customVPSize
 /*----------------------------------------------------------------------
 
  changeScreenSize Fn
@@ -59,25 +79,25 @@ $(function() {
         //------Load JSON val based on 'selector'------
         if (selector.attr('id') == 'mobileRes') {
             var JSONObj = MobObj,
-                DeviceTxt = 'other mobile';
+                DeviceTxt = 'mobile';
         }
         else if (selector.attr('id') == 'tabRes') {
             var JSONObj = TabObj,
-                DeviceTxt = 'other tablet';
+                DeviceTxt = 'tablet';
         }
 
         //-- ###### GOT TO IMPLEMENT LAPTOP RESOLUTIONS LATER ######
 
         else {
             var JSONObj = DesktopObj,
-                DeviceTxt = 'other laptop/desktop';
+                DeviceTxt = 'laptop/desktop';
         }
 
 
 
       //------Append JSON val based on ABOVE Condition------
         selectRes.empty();
-        selectRes.append('<option>Select ' + DeviceTxt + ' resolution</option>');
+        selectRes.append('<option>Other ' + DeviceTxt + ' resolution</option>');
 
         $.each(JSONObj, function(key, val) {
             selectRes.append('<option>' + val.xWidth + 'x' + val.yHeight + '</option>');
@@ -87,6 +107,8 @@ $(function() {
 
       //------Change Viewport from JSON val using <select>ed val------
         selectRes.on('change', function() {
+            inputWidth.val('');
+            inputHeight.val('');
             var xParam = $(this).val().split('x')[0];
             var yParam = $(this).val().split('x')[1];
             viewPort.width(xParam).height(yParam);
@@ -111,9 +133,25 @@ function init(){
     changeScreenSize(laptopRes, 1366, 768);
     changeScreenSize(desktopRes, 1920, 1200);
     changeScreenSize(resetViewPort, '100%', '100%');
+
+    validateNumber();
+    customVPSize();
 }
 
-
-
-
+function validateNumber() {
+    //attach keypress to input
+    $('#inputVP input').keydown(function(event) {
+        // Allow special chars + arrows
+        if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || event.keyCode == 13 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+            return;
+        } else {
+            // If it's not a number stop the keypress
+            if (event.shiftKey || (event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105)) {
+                event.preventDefault();
+            } else {
+                $('code').text($('.input').val())
+            }
+        }
+    });
+}//validateNumber
 

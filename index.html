@@ -30,7 +30,7 @@
         <nav>
 
             <div class="ctrlBtn " id="resReset">
-                <span class="ico-spinner5"></span>
+                <span class="ico-spinner4"></span>
             </div><!--Reset-->
 
 
@@ -58,14 +58,16 @@
             <div class="ctrlBtn">
                 <p id="selectResWrapper">
                     <select id="selectRes">
-                        <option>Select Resolution</option>
+                        <option>Select Device Type</option>
                     </select>
                 </p>
             </div><!-- Select Res-->
 
              <div class="ctrlBtn ">
-                <input type="text" placeholder="Screen Width"/>
-                <input type="text" placeholder="Screen Height"/>
+                <p id="inputVP">
+                    <input type="text" id="inputWidth" placeholder="Screen Width"/>
+                    <input type="text" id="inputHeight" placeholder="Screen Height"/>
+                </p>
             </div><!--Customise Res-->
 
 
@@ -109,6 +111,8 @@
            <iframe id="content" name="content" frameborder="0" src="http://blog.k97.in/" style="background-color: rgb(255, 255, 255);"></iframe>
 
         </div><!--/prjContainer-->
+        <canvas>
+        </canvas>
 
 
 
@@ -121,11 +125,13 @@
 
 
 
-
-         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="scripts/plugins.js"></script>
+         <script src="scripts/plugins.js"></script>
         <script src="scripts/main.js"></script>
+
+
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
