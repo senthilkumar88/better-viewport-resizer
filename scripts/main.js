@@ -28,6 +28,13 @@ $(function() {
     inputHeight = $('#inputHeight');
 
 
+    function ViewPortSizeChange(){
+
+        //To Show Current Window Size for ICON selection & Select Toggles
+
+
+    }//ViewPortSizeChange
+
     function customVPSize(){
         inputWidth.on('keyup',function(){
             var foo = inputWidth.val();
@@ -134,6 +141,7 @@ function init(){
     changeScreenSize(desktopRes, 1920, 1200);
     changeScreenSize(resetViewPort, '100%', '100%');
 
+    ViewPortSizeChange();
     validateNumber();
     customVPSize();
 }

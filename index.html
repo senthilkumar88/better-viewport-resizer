@@ -29,33 +29,33 @@
         <!--Viewport Ctrl-->
         <nav>
 
-            <div class="ctrlBtn " id="resReset">
-                <span class="ico-spinner4"></span>
+            <div class="ctrlBtn " id="resReset" title="Reset Viewport">
+                <span class="ico-spinner5"></span>
             </div><!--Reset-->
 
 
-            <div class="ctrlBtn " id="mobileRes">
+            <div class="ctrlBtn " id="mobileRes" title="Std. Mobile Viewport">
                 <span class="ico-mobile"></span>
             </div><!--Phone-->
 
 
-            <div class="ctrlBtn " id="tabRes">
+            <div class="ctrlBtn " id="tabRes" title="Std. Tablet Viewport">
                 <span class="ico-tablet"></span>
             </div><!--Tab-->
 
 
-            <div class="ctrlBtn " id="laptopRes">
+            <div class="ctrlBtn " id="laptopRes" title="Std. Laptop Viewport">
                 <span class="ico-laptop"></span>
             </div><!--Laptop-->
 
 
-            <div class="ctrlBtn " id="desktopRes">
+            <div class="ctrlBtn " id="desktopRes" title="Std. Desktop Viewport">
                 <span class="ico-screen"></span>
             </div><!--Desktop-->
 
 
 
-            <div class="ctrlBtn">
+            <div class="ctrlBtn" title="Select Device Type for different Viewport">
                 <p id="selectResWrapper">
                     <select id="selectRes">
                         <option>Select Device Type</option>
@@ -63,7 +63,11 @@
                 </p>
             </div><!-- Select Res-->
 
-             <div class="ctrlBtn ">
+            <div class="ctrlBtn " id="toggleSelect" title="Toggle Viewport">
+                <span class="ico-loop2"></span>
+            </div><!--SnapShot-->
+
+             <div class="ctrlBtn " title="Enter Custom Value">
                 <p id="inputVP">
                     <input type="text" id="inputWidth" placeholder="Screen Width"/>
                     <input type="text" id="inputHeight" placeholder="Screen Height"/>
@@ -72,13 +76,13 @@
 
 
 
-            <div class="ctrlBtn ">
-                <span class="ico-image2"></span>
+            <div class="ctrlBtn " title="Download Viewport as PDF">
+                <span class="ico-file-pdf"></span>
             </div><!--SnapShot-->
 
 
 
-            <div class="ctrlBtn ">
+            <div class="ctrlBtn " title="Print Viewport">
                 <span class="ico-print"></span>
             </div><!--Print-->
 
@@ -105,7 +109,7 @@
 
         </nav>
 
-
+        <h1 id="printHeader">Current Size: </h1>
 
         <div id="prjContainer">
            <iframe id="content" name="content" frameborder="0" src="http://blog.k97.in/" style="background-color: rgb(255, 255, 255);"></iframe>
